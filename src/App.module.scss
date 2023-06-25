@@ -1,8 +1,10 @@
 .App {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: none;
+  margin: 0 0px;
+  padding: 0rem;
   text-align: center;
+  background-color: #0f0e0e;
+  color: #f0e8e8;
 }
 
 .logo {
@@ -48,4 +50,16 @@
 
 .read-the-docs {
   color: #888;
+}
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  justify-items: center;
+  border: 5px solid #bfea8a;
 }
