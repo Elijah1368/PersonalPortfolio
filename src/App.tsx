@@ -6,6 +6,7 @@ import { Experience } from './components/experience/experience';
 import { Projects } from './components/projects/projects';
 import { Education } from './components/education/education';
 import { Contact } from './components/contact/contact';
+import './assets/index.css';
 
 function App() {
     const [count, setCount] = useState(0);
