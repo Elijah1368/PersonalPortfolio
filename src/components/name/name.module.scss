@@ -1,0 +1,22 @@
+.root {
+  font-size: 10em;
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.text-to-reveal {
+  font-family: 'Avenir Helvetica Ariel';
+  text-align: center;
+}
+
+.white-block {
+  position: absolute;
+  background-color: white;
+  margin-right: 100%;
+  width: 120%;
+  height: 35vh;
+}

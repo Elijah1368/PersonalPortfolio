@@ -10,5 +10,9 @@ export interface ExperienceProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 export const Experience = ({ className }: ExperienceProps) => {
-    return <div className={classNames(styles.root, className)}>Experience</div>;
+    return (
+        <div className={classNames(styles.root, className)} id="experience">
+            Experience
+        </div>
+    );
 };

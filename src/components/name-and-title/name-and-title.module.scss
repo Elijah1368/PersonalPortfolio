@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-self: center;
+  align-items: center;
+  justify-items: center;
+}
+.name {
+  text-align: center;
+  font-family: Valencia, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 10rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.title {
+  text-align: center;
+  font-family: AvenirRoman;
+  font-size: 3rem;
+}

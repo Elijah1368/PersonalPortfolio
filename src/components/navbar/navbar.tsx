@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import styles from './navbar.module.scss';
-
+import { Link } from 'react-scroll';
 export interface NavbarProps {
     className?: string;
 }
@@ -14,13 +14,41 @@ export const Navbar = ({ className }: NavbarProps) => {
         <div className={classNames(styles.root, className)}>
             <nav className={styles.navbar}>
                 <div className={styles.navbarHome}>
-                    <a href="/home">Home</a>
+                    <Link activeClass="active" to="home" spy={true} smooth={true} duration={500}>
+                        Home
+                    </Link>
                 </div>
                 <div className={styles.navbaroptions}>
-                    <a href="/contact">Experience</a>
-                    <a href="/contact">Projects</a>
-                    <a href="/about">Education</a>
-                    <a href="/projects">Contact</a>
+                    <Link
+                        activeClass="active"
+                        to="experience"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                    >
+                        Experience
+                    </Link>
+                    <Link
+                        activeClass="active"
+                        to="projects"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                    >
+                        Projects
+                    </Link>
+                    <Link
+                        activeClass="active"
+                        to="education"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                    >
+                        Education
+                    </Link>
+                    <Link activeClass="active" to="contact" spy={true} smooth={true} duration={500}>
+                        Contact
+                    </Link>
                 </div>
             </nav>
         </div>

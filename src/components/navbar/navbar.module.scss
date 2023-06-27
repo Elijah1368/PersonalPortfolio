@@ -19,6 +19,9 @@
   flex-shrink: 1;
   align-content: space-between;
   align-self: center;
+  position: fixed;
+  width: 100vw;
+  top: 5px;
 }
 .navbaroptions {
   display: flex;
