@@ -26,8 +26,13 @@ export const Name = ({ className, text, font, timeDelay }: NameProps) => {
     }, [timeDelay]); // Only run this effect when `timeDelay` changes
 
     return (
-        <div className={classNames(styles.root, className)} font-family={font}>
-            {text}
+        <div
+            className={classNames(styles.root, className, styles.revealAnimation)}
+            font-family={font}
+        >
+            <h1>
+                <span>{text}</span>
+            </h1>
         </div>
     );
 };

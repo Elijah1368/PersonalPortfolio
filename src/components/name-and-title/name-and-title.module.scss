@@ -19,3 +19,15 @@
   font-family: AvenirRoman;
   font-size: 3rem;
 }
+.nameDiv {
+  overflow: hidden;
+  max-height: 150px;
+  display: flex;
+  align-items: center;
+  width: 700px;
+}
+.titleDiv {
+  overflow: hidden;
+  display: flex;
+  max-height: 80px;
+}

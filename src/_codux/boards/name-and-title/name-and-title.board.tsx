@@ -3,5 +3,8 @@ import { NameAndTitle } from '../../../components/name-and-title/name-and-title'
 
 export default createBoard({
     name: 'NameAndTitle',
-    Board: () => <NameAndTitle />
+    Board: () => <NameAndTitle />,
+    environmentProps: {
+        windowHeight: 640,
+    },
 });
