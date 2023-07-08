@@ -1,8 +1,6 @@
 .root {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 1;
   align-self: center;
   align-items: center;
   justify-items: center;
@@ -16,7 +14,7 @@
 }
 .title {
   text-align: center;
-  font-family: AvenirRoman;
+
   font-size: 3rem;
 }
 .nameDiv {

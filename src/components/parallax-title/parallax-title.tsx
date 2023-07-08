@@ -1,25 +1,57 @@
 import classNames from 'classnames';
 import styles from './parallax-title.module.scss';
-import { useRef } from 'react';
-import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
+import { useScroll, animated } from 'react-spring';
 
 export interface ParallaxTitleProps {
     className?: string;
+    title: string;
 }
 
-/**
- * This component was created using Codux's Default new component template.
- * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
- */
-export const ParallaxTitle = ({ className }: ParallaxTitleProps) => {
-    const parallax = useRef<IParallax>(null!);
+export const ParallaxTitle = ({ className, title }: ParallaxTitleProps) => {
+    const { scrollYProgress } = useScroll();
+
+    const styleRightToLeft = {
+        transform: scrollYProgress.to({
+            range: [0, 0.1, 0.6, 1],
+            output: [
+                'translateX(0%)',
+                'translateX(-20%)',
+                'translateX(-100%)',
+                'translateX(-100%)',
+            ],
+        }),
+        // opacity: scrollYProgress.to({
+        //     range: [0.1, 0.18, 0.33, 0.35], // Start animation at 30% scroll
+        //     output: [0, 1, 1, 0], // At 0% and 30% scroll, opacity should be 1
+        // }),
+    };
+    const style = {
+        transform: scrollYProgress.to({
+            range: [0, 0.1, 0.6, 1],
+            output: ['translateX(0%)', 'translateX(10%)', 'translateX(100%)', 'translateX(100%)'],
+        }),
+        opacity: scrollYProgress.to({
+            range: [0.1, 0.18, 0.33, 0.35], // Start animation at 30% scroll
+            output: [0, 1, 1, 0], // At 0% and 30% scroll, opacity should be 1
+        }),
+    };
     return (
-        <div className={classNames(styles.root, className)}>
-            <Parallax ref={parallax} pages={3} horizontal>
-                <ParallaxLayer offset={0} speed={1} style={{ backgroundColor: '#805E73' }}>
-                    <span>Testing</span>
-                </ParallaxLayer>
-            </Parallax>
+        <div className={styles.parallaxTitleContainer}>
+            <animated.div
+                className={classNames(styles.background, className)}
+                style={styleRightToLeft}
+            >
+                <span className={classNames(styles.backgroundText, styles.text1)}>
+                    {title.toUpperCase()}
+                </span>
+                <span className={styles.backgroundText}>{title.toUpperCase()}</span>
+                <span className={classNames(styles.backgroundText, styles.text3)}>
+                    {title.toUpperCase()}
+                </span>
+            </animated.div>
+            <animated.div className={classNames(styles.root, className)} style={style}>
+                {title}
+            </animated.div>
         </div>
     );
 };

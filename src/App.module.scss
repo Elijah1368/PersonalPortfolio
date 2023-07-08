@@ -5,6 +5,8 @@
   text-align: center;
   background-color: #0f0e0e;
   color: #f0e8e8;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -62,4 +64,6 @@
   height: 100vh;
   justify-items: center;
   border: 5px solid #bfea8a;
+  font-family: Helvetica, Arial, sans-serif;
+  flex-direction: column;
 }

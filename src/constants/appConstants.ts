@@ -10,6 +10,9 @@ export const NAME: string = 'Elijah Amian';
 export const TITLE: string = 'Software Engineer';
 export const NAME_FONT: string = 'Valencia';
 export const TITLE_FONT: string = 'Avenir Roman';
+export const EXPERIENCE_TITLE: string = 'Experience';
+export const PROJECT_TITLE: string = 'Projects';
+
 export const WORK_EXPERIENCE: WorkExperience[] = [
     {
         company: 'Qualcomm',

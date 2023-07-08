@@ -7,7 +7,7 @@ import { Projects } from './components/projects/projects';
 import { Education } from './components/education/education';
 import { Contact } from './components/contact/contact';
 import './assets/index.css';
-
+import { EXPERIENCE_TITLE, PROJECT_TITLE } from './constants';
 function App() {
     const [count, setCount] = useState(0);
 
@@ -15,8 +15,8 @@ function App() {
         <div className={styles.App}>
             <Navbar />
             <Home className={styles.container} />
-            <Experience className={styles.container} />
-            <Projects className={styles.container} />
+            <Experience className={styles.container} title={EXPERIENCE_TITLE} />
+            <Projects className={styles.container} title={PROJECT_TITLE} />
             <Education className={styles.container} />
             <Contact className={styles.container} />
         </div>
