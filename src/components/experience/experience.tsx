@@ -4,6 +4,7 @@ import { ParallaxTitle } from '../parallax-title/parallax-title';
 import { ExperienceItem } from './experience-item/experience-item';
 import App_module from '../../App.module.scss';
 import { WORK_EXPERIENCE } from '../../constants';
+import Navbar_module from '../navbar/navbar.module.scss';
 
 export interface ExperienceProps {
     className?: string;
@@ -16,7 +17,7 @@ export interface ExperienceProps {
  */
 export const Experience = ({ className, title }: ExperienceProps) => {
     return (
-        <div id="experience">
+        <div id="experience" className={styles.root}>
             <ParallaxTitle title={title} />
             {WORK_EXPERIENCE.map((experience, index) => {
                 return (

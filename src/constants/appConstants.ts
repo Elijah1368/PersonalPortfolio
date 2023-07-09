@@ -1,12 +1,16 @@
-import QualcommImage from '../assets/Images/Qualcomm.jpg';
+import QualcommImage from '../assets/Images/qualcommchip2.jpg';
 //create interface for work experience
+export interface ImgInfo {
+    url: string;
+    right: string;
+}
 export interface WorkExperience {
     company: string;
     title: string;
     startDate: string;
     endDate: string;
     description: string[];
-    imgUrl: string;
+    imgInfo?: ImgInfo;
 }
 export const NAME: string = 'Elijah Amian';
 export const TITLE: string = 'Software Engineer';
@@ -26,7 +30,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
             "Led the development of the app's front end using React/TypeScript in a Linux environment, showcasing proficiency in modern web technologies and server deployment using Python.",
             'Seamlessly integrated the app with the existing user database via a robust API, enabling real-time tracking of project labels for optimal RAM allocation during task execution.',
         ],
-        imgUrl: QualcommImage,
+        imgInfo: {
+            url: QualcommImage,
+            right: '-600px',
+        },
     },
     {
         company: 'University of Washington',
@@ -38,7 +45,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
             'Leveraged the National Institutes of Health (NIH) database and Application Programming Interface (API) to enable efficient access to human gene information, creating a search functionality that suggests relevant data intuitively.',
             "Employed a user-centered design approach to optimize the website's functionality and accessibility, ensuring a seamless and intuitive user journey throughout the site.",
         ],
-        imgUrl: QualcommImage,
     },
     {
         company: 'MCG Health Apple',
@@ -50,6 +56,5 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
             'Migrated existing codebase from jQuery 1.4 to jQuery 3.6, resulting in substantial improvements in application performance and maintainability. Conducted a comprehensive assessment of the legacy codebase, identifying areas for optimization and efficiency improvement, and implementing code replacements as necessary.',
             'Enabled targeted optimizations by conducting accurate load testing on the software using Javascript and k6 framework, identifying bottlenecks and measuring performance.',
         ],
-        imgUrl: QualcommImage,
     },
 ];

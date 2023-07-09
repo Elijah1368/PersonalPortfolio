@@ -1,11 +1,11 @@
 .root {
   display: flex;
   flex-wrap: nowrap;
-  align-items: start;
+  align-items: center;
   align-content: center;
   justify-content: center;
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   justify-items: center;
   border: 5px solid #bfea8a;
@@ -13,4 +13,12 @@
   flex-direction: column;
 }
 .background {
+}
+.jobDescription {
+  display: flex;
+  align-items: center;
+}
+.test {
+  z-index: 4;
+  align-self: center;
 }
