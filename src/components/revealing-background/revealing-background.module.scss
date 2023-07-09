@@ -1,14 +1,16 @@
 .root {
-  position: static;
-}
-.parallaxContainer {
-  position: fixed;
+  z-index: 0;
+  height: 100%;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  display: flex;
 }
 
-.image {
-  width: 100%;
+.revealingBackground {
   height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.imgAdjust1 {
+  right: 10px;
 }

@@ -17,6 +17,7 @@ export const ExperienceItem = ({ className, experience }: ExperienceItemProps) =
     return (
         <div className={classNames(styles.root, className)}>
             <JobDescriptionContainer experience={experience} />
+
             <RevealingBackground imgUrl={experience.imgUrl} className={styles.background} />
         </div>
     );

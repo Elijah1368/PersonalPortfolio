@@ -4,6 +4,7 @@ import { ParallaxTitle } from '../parallax-title/parallax-title';
 import { ExperienceItem } from './experience-item/experience-item';
 import App_module from '../../App.module.scss';
 import { WORK_EXPERIENCE } from '../../constants';
+
 export interface ExperienceProps {
     className?: string;
     title: string;
