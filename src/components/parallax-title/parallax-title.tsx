@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from './parallax-title.module.scss';
-import { useScroll, animated } from 'react-spring';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 export interface ParallaxTitleProps {
     className?: string;
@@ -8,50 +9,40 @@ export interface ParallaxTitleProps {
 }
 
 export const ParallaxTitle = ({ className, title }: ParallaxTitleProps) => {
-    const { scrollYProgress } = useScroll();
+    const ref = useRef(null);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const styleRightToLeft = {
-        transform: scrollYProgress.to({
-            range: [0, 0.1, 0.6, 1],
-            output: [
-                'translateX(0%)',
-                'translateX(-20%)',
-                'translateX(-100%)',
-                'translateX(-100%)',
-            ],
-        }),
-        // opacity: scrollYProgress.to({
-        //     range: [0.1, 0.18, 0.33, 0.35], // Start animation at 30% scroll
-        //     output: [0, 1, 1, 0], // At 0% and 30% scroll, opacity should be 1
-        // }),
-    };
-    const style = {
-        transform: scrollYProgress.to({
-            range: [0, 0.1, 0.6, 1],
-            output: ['translateX(0%)', 'translateX(10%)', 'translateX(100%)', 'translateX(100%)'],
-        }),
-        opacity: scrollYProgress.to({
-            range: [0.1, 0.18, 0.33, 0.35], // Start animation at 30% scroll
-            output: [0, 1, 1, 0], // At 0% and 30% scroll, opacity should be 1
-        }),
-    };
+    // Update window width when the window is resized
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['0% 50%', '50% 0%'],
+    });
+
+    const factor = windowWidth / 1920; // adjust the factor as needed. 1920 is a base value which assumes that the layout is designed on a 1920px wide screen.
+
+    const x = useTransform(
+        scrollYProgress,
+        [0, 0.15, 0.8, 1],
+        [0, 400, 800, 1300].map((val) => val * factor)
+    );
+    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.75, 1], [0, 1, 1, 0]);
+
     return (
-        <div className={styles.parallaxTitleContainer}>
-            <animated.div
-                className={classNames(styles.background, className)}
-                style={styleRightToLeft}
-            >
-                <span className={classNames(styles.backgroundText, styles.text1)}>
-                    {title.toUpperCase()}
-                </span>
-                <span className={styles.backgroundText}>{title.toUpperCase()}</span>
-                <span className={classNames(styles.backgroundText, styles.text3)}>
-                    {title.toUpperCase()}
-                </span>
-            </animated.div>
-            <animated.div className={classNames(styles.root, className)} style={style}>
+        <div className={styles.parallaxTitleContainer} ref={ref}>
+            <motion.div className={classNames(styles.root, className)} style={{ x, opacity }}>
                 {title}
-            </animated.div>
+            </motion.div>
         </div>
     );
 };

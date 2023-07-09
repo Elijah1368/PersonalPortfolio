@@ -1,2 +1,16 @@
 .root {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: start;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  justify-items: center;
+  border: 5px solid #bfea8a;
+  font-family: Helvetica, Arial, sans-serif;
+  flex-direction: column;
+}
+.background {
 }

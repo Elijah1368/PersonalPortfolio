@@ -1,0 +1,14 @@
+.root {
+  position: static;
+}
+.parallaxContainer {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
