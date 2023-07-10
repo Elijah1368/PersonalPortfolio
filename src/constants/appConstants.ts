@@ -32,7 +32,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
         ],
         imgInfo: {
             url: QualcommImage,
-            right: '-600px',
+            right: '-300px',
         },
     },
     {

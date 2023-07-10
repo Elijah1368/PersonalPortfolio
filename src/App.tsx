@@ -22,7 +22,7 @@ function App() {
             {/* <RevealingBackground imgUrl={QualcommImage} imgClassName={'imgAdjust1'} /> */}
             <Home className={styles.container} />
             <Experience className={styles.container} title={EXPERIENCE_TITLE} />
-            <Projects className={styles.container} title={PROJECT_TITLE} />
+            <Projects title={PROJECT_TITLE} />
             <Education className={styles.container} />
             <Contact className={styles.container} />
         </div>

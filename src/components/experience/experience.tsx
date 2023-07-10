@@ -19,15 +19,17 @@ export const Experience = ({ className, title }: ExperienceProps) => {
     return (
         <div id="experience" className={styles.root}>
             <ParallaxTitle title={title} />
-            {WORK_EXPERIENCE.map((experience, index) => {
-                return (
-                    <ExperienceItem
-                        key={index}
-                        experience={experience}
-                        className={classNames(App_module.container, styles.experienceItem)}
-                    />
-                );
-            })}
+            <div className={styles.ca}>
+                {WORK_EXPERIENCE.map((experience, index) => {
+                    return (
+                        <ExperienceItem
+                            key={index}
+                            experience={experience}
+                            className={App_module.container}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };

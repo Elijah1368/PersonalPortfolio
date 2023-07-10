@@ -17,26 +17,13 @@ export interface ExperienceItemProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 export const ExperienceItem = ({ className, experience }: ExperienceItemProps) => {
-    const [ref, inView] = useInView({
-        threshold: 1,
-        triggerOnce: false,
-    });
-    const variants = {
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-    };
     return (
         <div className={classNames(styles.root, className)}>
             {/* <div className={styles.jobDescription}> */}
-            <motion.div ref={ref}>
-                <JobDescriptionContainer experience={experience} />
-            </motion.div>
-            <motion.div
-                animate={inView ? 'visible' : 'hidden'}
-                variants={variants}
-                exit="hidden"
-                transition={{ duration: 2 }}
-            >
+
+            <JobDescriptionContainer experience={experience} />
+
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
                 <RevealingBackground imgInfo={experience.imgInfo} className={styles.background} />
             </motion.div>
         </div>

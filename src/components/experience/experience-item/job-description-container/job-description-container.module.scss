@@ -14,8 +14,8 @@
   width: 50rem;
   margin: 50px;
   z-index: 1;
-  position: absolute;
-  align-self: center;
+  display: block;
+  align-self: start;
 }
 .titleAndDate {
   display: flex;

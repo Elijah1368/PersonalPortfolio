@@ -23,7 +23,7 @@ export const RevealingBackground = ({
     const { url, right } = imgInfo;
 
     return (
-        <div>
+        <div className={styles.gradient}>
             <img
                 src={url}
                 alt="Description"
