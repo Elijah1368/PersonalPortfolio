@@ -8,7 +8,6 @@
   width: 100vw;
   height: 100vh;
   justify-items: center;
-  border: 5px solid #bfea8a;
   font-family: Helvetica, Arial, sans-serif;
   flex-direction: column;
 }
@@ -17,8 +16,4 @@
 .jobDescription {
   display: flex;
   align-items: center;
-}
-.test {
-  z-index: 4;
-  align-self: center;
 }

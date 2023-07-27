@@ -1,8 +1,9 @@
-import QualcommImage from '../assets/Images/qualcommchip2.jpg';
+import QualcommImage from '../assets/Images/Qualcomm.jpg';
+import MorphicImage from '../assets/Images/Morphic.png';
+import MCGImage from '../assets/Images/mcghealth.png';
 //create interface for work experience
 export interface ImgInfo {
     url: string;
-    right: string;
 }
 export interface WorkExperience {
     company: string;
@@ -32,7 +33,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
         ],
         imgInfo: {
             url: QualcommImage,
-            right: '-300px',
         },
     },
     {
@@ -45,9 +45,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
             'Leveraged the National Institutes of Health (NIH) database and Application Programming Interface (API) to enable efficient access to human gene information, creating a search functionality that suggests relevant data intuitively.',
             "Employed a user-centered design approach to optimize the website's functionality and accessibility, ensuring a seamless and intuitive user journey throughout the site.",
         ],
+        imgInfo: {
+            url: MorphicImage,
+        }
     },
     {
-        company: 'MCG Health Apple',
+        company: 'MCG Health',
         title: 'Software Engineer Intern',
         startDate: 'July 2022',
         endDate: 'September 2022',
@@ -56,5 +59,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
             'Migrated existing codebase from jQuery 1.4 to jQuery 3.6, resulting in substantial improvements in application performance and maintainability. Conducted a comprehensive assessment of the legacy codebase, identifying areas for optimization and efficiency improvement, and implementing code replacements as necessary.',
             'Enabled targeted optimizations by conducting accurate load testing on the software using Javascript and k6 framework, identifying bottlenecks and measuring performance.',
         ],
+        imgInfo: {
+            url: MCGImage,
+        }
     },
 ];

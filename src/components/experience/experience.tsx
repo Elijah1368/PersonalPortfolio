@@ -17,7 +17,7 @@ export interface ExperienceProps {
  */
 export const Experience = ({ className, title }: ExperienceProps) => {
     return (
-        <div id="experience" className={styles.root}>
+        <div id="experience" >
             <ParallaxTitle title={title} />
             <div className={styles.ca}>
                 {WORK_EXPERIENCE.map((experience, index) => {

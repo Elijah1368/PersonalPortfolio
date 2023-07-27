@@ -7,13 +7,14 @@ export interface NameProps {
     text: string;
     font?: string;
     timeDelay: number;
+    children?: React.ReactNode;
 }
 
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const Name = ({ className, text, font, timeDelay }: NameProps) => {
+export const Name = ({ className, text, font, timeDelay, children }: NameProps) => {
     const [reveal, setReveal] = useState(false);
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export const Name = ({ className, text, font, timeDelay }: NameProps) => {
             font-family={font}
         >
             <h1>
-                <span>{text}</span>
+                {children}
             </h1>
         </div>
     );

@@ -34,10 +34,10 @@ export const ParallaxTitle = ({ className, title }: ParallaxTitleProps) => {
     const x = useTransform(
         scrollYProgress,
         [0, 0.2, 0.8, 1],
-        [0, 300, 900, 1400].map((val) => val * factor)
+        [200, 500, 1000, 1200].map((val) => val * factor)
     );
 
-    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.75, 1], [0, 1, 1, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.85, 1], [0, 1, 1, 0]);
 
     return (
         <div className={classNames(styles.parallax)} ref={ref}>
