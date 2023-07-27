@@ -1,0 +1,21 @@
+
+.dock {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-end;
+  justify-content: center;
+  height: 58px;
+  display: flex;
+  padding: 10px;
+  padding-bottom: 0px;
+  gap: 12px;
+  background-color: var(--theme-bg-color);
+  will-change: contents;
+  box-sizing: content-box;
+  border-radius: 14px;
+  transform-origin: center bottom;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px);
+}

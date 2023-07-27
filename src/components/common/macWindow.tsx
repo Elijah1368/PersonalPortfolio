@@ -1,28 +1,32 @@
 import React from 'react';
 import './macWindow.scss';
 import { AnimateOnScroll } from './animateOnScroll';
+import { WorkExperience } from '../../constants';
+import { Box } from '@mui/material';
 
 
 interface MacWindowProps {
   children?: React.ReactNode;
+  title: string;
 }
 
-function MacWindow({children}: MacWindowProps) {
+function MacWindow({children, title}: MacWindowProps) {
   return (
 
-    <div className="mac-window z-10 ml-10 topMargin">
-      <div className="title-bar">
+    <Box className="mac-window z-10 topMargin overflow-hidden">
+      <div className="title-bar bordeer-bot">
         <div className="buttons">
           <div className="close"></div>
           <div className="minimize"></div>
           <div className="expand"></div>
         </div>
-        <div className="title">My MacOS Window</div>
+        <div className="title text-white">{title}</div>
+        <div className="w-14"></div>
       </div>
-      <div className="content">
+      <div className="content flex justify-center items-center w-full h-full p-12">
         {children}
       </div>
-    </div>
+    </Box>
   
   );
 }

@@ -3,8 +3,11 @@ import styles from './experience.module.scss';
 import { ParallaxTitle } from '../parallax-title/parallax-title';
 import { ExperienceItem } from './experience-item/experience-item';
 import App_module from '../../App.module.scss';
-import { WORK_EXPERIENCE } from '../../constants';
+import { EXPERIENCE_ITEM_HEIGHT, WORK_EXPERIENCE } from '../../constants';
 import Navbar_module from '../navbar/navbar.module.scss';
+import MacWindow from '../common/macWindow';
+import { JobDescriptionContainer } from './experience-item/job-description-container/job-description-container';
+import { RevealingBackground } from '../revealing-background/revealing-background';
 
 export interface ExperienceProps {
     className?: string;
@@ -24,9 +27,18 @@ export const Experience = ({ className, title }: ExperienceProps) => {
                     return (
                         <ExperienceItem
                             key={index}
-                            experience={experience}
-                            className={App_module.container}
-                        />
+                            height={EXPERIENCE_ITEM_HEIGHT}
+                        >
+                                        {/* <JobDescriptionContainer experience={experience} /> */}
+    
+                            <MacWindow title={title}>
+                                <JobDescriptionContainer experience={experience} />
+                            </MacWindow>
+                            
+                            <RevealingBackground height={"200vh"} imgInfo={experience.imgInfo}/>
+                        
+            
+                        </ExperienceItem>
                     );
                 })}
             </div>

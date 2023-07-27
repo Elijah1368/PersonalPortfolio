@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,13 +9,34 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(249, 249, 249, 0.87);
   background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(210, 210, 210, 0.283);
+  --theme-color: #ffffff;
+  --inactive-color: rgb(113 119 144 / 78%);
+  --body-font: "Poppins", sans-serif;
+  --hover-menu-bg: rgba(12 15 25 / 30%);
+  --content-title-color: #999ba5;
+  --content-bg: rgb(146 151 179 / 60%);
+  --button-inactive: rgb(249 250 251 / 55%);
+  --dropdown-bg: #21242d;
+  --dropdown-hover: rgb(42 46 60);
+  --popup-bg: rgb(22 25 37);
+  --search-bg:  #14162b;
+  --overlay-bg: rgba(36, 39, 59, 0.3);
+  --scrollbar-bg: rgb(1 2 3 / 40%);
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.2) rgba(0,0,0,0.1);
 }
 
 a {
@@ -24,6 +47,27 @@ a {
 a:hover {
   color: #535bf2;
 }
+/* This will change the scrollbar for the whole document */
+
+/* This will change the scrollbar for the whole document */
+
+/* Change the scrollbar's width and handle visibility (for Chrome, Firefox) */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(241, 241, 241, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.678);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  width:10px;
+ 
+}
+
+/* Firefox requires a different set of rules */
+
 
 body {
   margin: 0;

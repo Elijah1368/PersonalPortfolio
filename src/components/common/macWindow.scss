@@ -1,26 +1,44 @@
+
+
 .mac-window {
-    width: 600px;
-    height: 400px;
-    background: #fff;
-    border-radius: 5px;
+    width: 1200px;
+ 
+    background-color: var(--theme-bg-color);
+    border-radius: 14px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    outline: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--body-font);
+   
   }
+
   
   .title-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    background: #f0f0f0;
-    border-bottom: 1px solid #ccc;
-    border-radius: 5px 5px 0 0;
+    padding: 0 16px;
+    height: 50px;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 14px 14px 0 0;
+    outline: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+    overflow: hidden;
+    position: fixed;
+    width:100%;
+
   }
   
   .buttons {
     display: flex;
     align-items: center;
   }
-  
+
   .close, .minimize, .expand {
     width: 12px;
     height: 12px;
@@ -32,14 +50,13 @@
   .minimize { background: #fecb2f; }
   .expand { background: #2aca3e; }
   
-  .title {
-    color: #333;
-  }
+
   .close:hover, .minimize:hover, .expand:hover {
     opacity: 0.7;  /* reduce opacity on hover */
   }
   .content {
-    padding: 10px;
+   
+    
   }
   .topMargin{
     margin-top: 150vh
