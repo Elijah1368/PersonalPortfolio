@@ -14,7 +14,7 @@ export interface ProjectsProps {
  */
 export const Projects = ({ className, children }: ProjectsProps) => {
     return (
-        <Section>
+        <Section className={className}>
             {children}
         </Section>
     );

@@ -3,15 +3,24 @@ import styles from './revealing-background.module.scss';
 import { useEffect, useState } from 'react';
 import img from '../../assets/images/Qualcomm.jpg';
 import { ImgInfo } from '../../constants';
-import { motion } from 'framer-motion';
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { Card, Container } from '@mui/material';
 import { Section } from '../common/section';
 export interface RevealingBackgroundProps {
     className?: string;
-    imgInfo?: ImgInfo;
-    height: string;
+    children: React.ReactNode;
+    slow?: boolean;
 }
+const squareVariants = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+    hidden: { opacity: 0, scale: 1 }
+  };
 
+  const slowSquareVariants = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 3 } },
+    hidden: { opacity: 0, scale: 1 }
+  };
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
@@ -21,24 +30,30 @@ const defaultInfo: ImgInfo = {
 };
 export const RevealingBackground = ({
     className,
-    imgInfo = defaultInfo,
-    height
+    children,
+    slow
 }: RevealingBackgroundProps) => {
-    const { url} = imgInfo;
 
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+
+    useEffect(() => {
+      if (inView) {
+        controls.start("visible");
+      } else {
+        controls.start("hidden");
+      }
+    }, [controls, inView]);
     return (
-   
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1, height: height, zIndex: 0}}>
+      <motion.div
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={slow ? slowSquareVariants: squareVariants}
+        className="flex align-center justify-center w-full"
+      >
 
-                    <img
-                        src={url}
-                        alt="Description"
-                        className="fixed top-0 left-0 w-screen h-screen object-cover z-0"
-                
-                    />
-                   
-            </motion.div>
-       
-      
+        {children}
+      </motion.div>
     );
 };

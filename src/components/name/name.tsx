@@ -15,16 +15,6 @@ export interface NameProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 export const Name = ({ className, text, font, timeDelay, children }: NameProps) => {
-    const [reveal, setReveal] = useState(false);
-
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setReveal(true);
-        }, timeDelay);
-
-        // Cleanup function: if the component unmounts before the timeout finishes, it prevents setState on unmounted component
-        return () => clearTimeout(timeoutId);
-    }, [timeDelay]); // Only run this effect when `timeDelay` changes
 
     return (
         <div

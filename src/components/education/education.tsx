@@ -13,7 +13,7 @@ export interface EducationProps {
  */
 export const Education = ({ className, children }: EducationProps) => {
     return (
-        <Section>
+        <Section className={className}>
             {children}
         </Section>
     );

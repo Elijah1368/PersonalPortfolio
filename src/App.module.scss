@@ -8,9 +8,46 @@
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  
 }
 
+.first {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url('./assets/Images/elCapitan3.jpg');
+}
+
+.second {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url('./assets/Images/elCapitan3.jpg');
+    z-index: 2;
+}
+
+.third {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url('./assets/Images/universityOfWashington.jpg');
+    z-index: 2;
+}
+
+.firstExperience {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url('./assets/Images/Qualcomm2.jpg');
+  background-attachment: fixed;
+}
+.secondExperience {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url('./assets/Images/morphic.jpg');
+  background-attachment: fixed;
+}
+.thirdExperience {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url('./assets/Images/mcgHealth2.jpg');
+  background-attachment: fixed;
+}
+.copy {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
 .logo {
   padding: 1.25em;
   will-change: filter;
@@ -55,18 +92,49 @@
 .read-the-docs {
   color: #888;
 }
+
+.education {
+ 
+  background-image: url('../src/assets/Images/universityOfWashington.jpg');
+
+}
 .container {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  overflow: hidden;
+  color: var(--color);
   width: 100%;
-  height: 100vh;
-  justify-items: center;
-  border: 5px solid #bfea8a;
-  font-family: Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.blank {
+  width: 100%;
+  min-height: 200px;
+  font-family: var(--body-font);
   z-index: 1;
+  background-color: white;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.774);
+  font-size: 1.25rem /* 20px */;
+  line-height: 1.75rem /* 28px */;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+  font-size: 3rem /* 48px */;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.blank2 {
+  width: 100%;
+  min-height: 50px;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.756);
 }

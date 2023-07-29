@@ -11,37 +11,17 @@ import { RevealingBackground } from '../revealing-background/revealing-backgroun
 
 export interface ExperienceProps {
     className?: string;
-    title: string;
+    children: React.ReactNode
 }
 
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const Experience = ({ className, title }: ExperienceProps) => {
+export const Experience = ({ className, children }: ExperienceProps) => {
     return (
-        <div id="experience" >
-            <ParallaxTitle title={title} />
-            <div className={styles.ca}>
-                {WORK_EXPERIENCE.map((experience, index) => {
-                    return (
-                        <ExperienceItem
-                            key={index}
-                            height={EXPERIENCE_ITEM_HEIGHT}
-                        >
-                                        {/* <JobDescriptionContainer experience={experience} /> */}
-    
-                            <MacWindow title={title}>
-                                <JobDescriptionContainer experience={experience} />
-                            </MacWindow>
-                            
-                            <RevealingBackground height={"200vh"} imgInfo={experience.imgInfo}/>
-                        
-            
-                        </ExperienceItem>
-                    );
-                })}
-            </div>
+        <div id="experience" className={className}>
+            {children}
         </div>
     );
 };

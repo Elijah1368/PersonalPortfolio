@@ -15,9 +15,9 @@ export interface HomeProps {
  */
 export const Home = ({ className }: HomeProps) => {
     return (
-        <Section>
+        <Section className={className}>
             <NameAndTitle />
-            <img src={WALLPAPER} className="fixed top-0 left-0 w-screen h-screen object-cover z-0"></img>
+            {/* <img src={WALLPAPER} className="fixed top-0 left-0 w-screen h-screen object-cover z-0"></img> */}
         </Section>
     );
 };

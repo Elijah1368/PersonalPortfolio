@@ -27,7 +27,6 @@
   flex-direction: column;
   width: 97%;
   height: 70%;
-  margin-top: 37px;
   font-size: 16px;
   background-color: var(--content-bg);
   border-radius: 14px;
@@ -38,27 +37,13 @@
   padding-right: 50px;
   justify-content: center;
   transition: 0.3s ease;
-
+  
   &:hover {
    transform: scale(1.02);
    background-color: var(--theme-bg-color);
   }
 
-  @media screen and (max-width: 1110px) {
-   width: calc(50% - 20px);
-   &:last-child {
-
-    margin-left: 0px;
-   }
-  }
-
-  @media screen and (max-width: 565px) {
-   width: calc(100% - 20px);
-
-   & + .appCard {
-    margin-left: 0;
-   }
-  }
+ 
  }
 
 

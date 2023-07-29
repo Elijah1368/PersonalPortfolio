@@ -13,19 +13,18 @@ import { Link } from 'react-scroll'
 import { DockCard } from '../DockCard'
 import { DockDivider } from '../DockDivider'
 import { Card } from '../Card'
-interface DockProps {
-  children: React.ReactNode
-}
+import { RevealingBackground } from '../../revealing-background/revealing-background'
+interface DockProps {}
 
 export const DOCK_ZOOM_LIMIT = [-100, 50]
 
-export const Dock = ({ children }: DockProps) => {
+export const Dock = () => {
   const [hovered, setHovered] = React.useState(false)
   const [width, setWidth] = React.useState(0)
   const isZooming = React.useRef(false)
   const dockRef = React.useRef<HTMLDivElement>(null!)
   const [selectedCard, setSelectedCard] = React.useState<string>('')
-  
+
   const setIsZooming = React.useCallback((value: boolean) => {
     isZooming.current = value
     setHovered(!value)
@@ -42,7 +41,9 @@ export const Dock = ({ children }: DockProps) => {
   })
 
   return (
-    <DockContext.Provider value={{ hovered, setIsZooming, width, zoomLevel, setSelectedCard }}>
+    <DockContext.Provider
+      value={{ hovered, setIsZooming, width, zoomLevel, setSelectedCard }}
+    >
       <animated.div
         ref={dockRef}
         className={styles.dock}
@@ -63,18 +64,21 @@ export const Dock = ({ children }: DockProps) => {
               output: [2, 1, 0.5],
             })
             .to(value => clamp(0.5, 2, value)),
-        }}>
-              {Object.entries(DOCK_DATA).map(([id, src], index) =>
-                src ? (
-                    <Link to={id} smooth={true} duration={500} spy={true}>
-                        <DockCard key={src} selected={selectedCard} id={id}>
-                            <Card src={src} />
-                        </DockCard>
-                    </Link>
-                ) : (
-                    <DockDivider key={index} />
-                )
-                )}
+        }}
+      >
+        {Object.entries(DOCK_DATA).map(([id, src], index) =>
+          src ? (
+            <RevealingBackground slow={true}>
+              <Link to={id} smooth={true} duration={500} spy={true}>
+                <DockCard key={src} selected={selectedCard} id={id}>
+                  <Card src={src} />
+                </DockCard>
+              </Link>
+            </RevealingBackground>
+          ) : (
+            <DockDivider key={index} />
+          ),
+        )}
       </animated.div>
     </DockContext.Provider>
   )

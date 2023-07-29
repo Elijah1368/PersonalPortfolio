@@ -1,25 +1,32 @@
 
 import { Box } from '@mui/material';
+import { Section } from '../../common/section';
 
 export interface ExperienceItemProps {
     children?: React.ReactNode;
     height: string;
+    className: string;
 }
 
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
- */
-export const ExperienceItem = ({children, height }: ExperienceItemProps) => {
+ * ! sddsdasdasddasd
+ * ! sd
+ * /
 
+/**
+ * ? sdsd
+ * TODO: asdkjas
+ * * sdkjsdkj
+ */
+export const ExperienceItem = ({children, className}: ExperienceItemProps) => {
+  
     return (
       
-            
-        <Box className="w-screen flex justify-center items-center" sx={{height: {height}}}>
-            
+        <Section className={className}>
             {children}
-
-        </Box>
+        </Section>
     
     );
 };

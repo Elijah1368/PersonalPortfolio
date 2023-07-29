@@ -14,16 +14,19 @@ export interface NameAndTitleProps {
  */
 export const NameAndTitle = ({ className }: NameAndTitleProps) => {
     return (
-        <div className={classNames(styles.root, className, "z-10")}>
+        <div className={classNames(styles.root, className, "z-1 fixed")}>
             <div className={styles.nameDiv}>
-                <Name timeDelay={10} text={NAME} font={NAME_FONT} className={styles.name}>
+                <h1 className={styles.header}>
+                    <span className={styles.textSpan}>Elijah Amian</span>
+                </h1>
+                {/* <Name timeDelay={10} text={NAME} font={NAME_FONT} className={styles.name}>
                    <Typography variant="h1" fontFamily={NAME_FONT} className="test">{NAME}</Typography>
-                </Name>
+                </Name> */}
             </div>
             <div className={styles.titleDiv}>
-                <Title text={TITLE} font={TITLE_FONT} className={styles.title}>
-                    {TITLE}
-                </Title>
+                <h3 className={styles.header3}>
+                    <span className={styles.title}>Software Engineer</span>
+                </h3>
             </div>
         </div>
     );
