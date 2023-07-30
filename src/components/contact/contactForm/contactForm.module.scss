@@ -1,42 +1,4 @@
-.myForm {
-  max-width: 500px;
-  margin: 0 auto;
-}
 
-.h1 {
-  font-weight: 100;
-  color: white;
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgb(79, 98, 148);
-}
-
-.container {
-  background: #0e101c;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.errorMsg {
-  color: #bf1650;
-
-  &::before {
-    display: inline;
-    content: '⚠ ';
-  }
-}
-
-.myInput {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid white;
-  color: black;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
 
 .myLabel {
   line-height: 2;
@@ -49,49 +11,22 @@
   font-weight: 200;
 }
 
-.submitButton {
-  background: #ec5990;
-  color: white;
-  text-transform: uppercase;
-  border: none;
-  margin-top: 40px;
-  padding: 20px;
-  font-size: 16px;
-  font-weight: 100;
-  letter-spacing: 10px;
 
-  &:hover {
-    background: #bf1650;
-  }
-
-  &:active {
-    transition: 0.3s all;
-    transform: translateY(3px);
-    border: 1px solid transparent;
-    opacity: 0.8;
-  }
+.test-enter {
+  opacity: 0;
+}
+.test-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.test-exit {
+  opacity: 1;
+}
+.test-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }
 
-.disabledInput {
-  opacity: 0.4;
-}
-
-.button {
-  -webkit-appearance: none;
-
-  &:hover {
-    transition: 0.3s all;
-  }
-
-  &:active {
-    transition: 0.3s all;
-    transform: translateY(3px);
-    border: 1px solid transparent;
-    opacity: 0.8;
-  }
-}
-
-.App {
-  max-width: 600px;
-  margin: 0 auto;
+.test { 
+  opacity: 0 
 }

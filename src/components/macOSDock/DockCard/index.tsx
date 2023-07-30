@@ -1,5 +1,9 @@
 import * as React from 'react'
-import { animated, useIsomorphicLayoutEffect, useSpringValue } from '@react-spring/web'
+import {
+  animated,
+  useIsomorphicLayoutEffect,
+  useSpringValue,
+} from '@react-spring/web'
 
 import { useMousePosition } from '../hooks/useMousePosition'
 import { useWindowResize } from '../hooks/useWindowResize'
@@ -52,7 +56,10 @@ export const DockCard = ({ children, selected, id }: DockCardProps) => {
 
         if (dock.width > 0) {
           const transformedValue =
-            INITIAL_WIDTH + 36 * Math.cos((((mouseX - elCenterX) / dock.width) * Math.PI) / 2) ** 12
+            INITIAL_WIDTH +
+            36 *
+              Math.cos((((mouseX - elCenterX) / dock.width) * Math.PI) / 2) **
+                12
 
           if (dock.hovered) {
             size.start(transformedValue)
@@ -60,7 +67,7 @@ export const DockCard = ({ children, selected, id }: DockCardProps) => {
         }
       },
     },
-    [elCenterX, dock]
+    [elCenterX, dock],
   )
 
   useIsomorphicLayoutEffect(() => {
@@ -82,15 +89,14 @@ export const DockCard = ({ children, selected, id }: DockCardProps) => {
   const handleClick = () => {
     if (!isAnimating.current) {
       isAnimating.current = true
-  
 
       timesLooped.current = 0
 
       y.start(-INITIAL_WIDTH / 2, {
         loop: () => {
-          if (1 === timesLooped.current++) {  // Updated this line
+          if (3 === timesLooped.current++) {
+            // Updated this line
             timeoutRef.current = window.setTimeout(() => {
-            
               y.set(0)
               isAnimating.current = false
               timeoutRef.current = undefined
@@ -100,15 +106,6 @@ export const DockCard = ({ children, selected, id }: DockCardProps) => {
           return { reverse: true }
         },
       })
-    } else {
-      /**
-       * Allow premature exit of animation
-       * on a second click if we're currently animating
-       */
-      clearTimeout(timeoutRef.current)
-  
-      y.start(0)
-      isAnimating.current = false
     }
     setSelectedCard(id)
   }
@@ -132,7 +129,8 @@ export const DockCard = ({ children, selected, id }: DockCardProps) => {
           width: size,
           height: size,
           y,
-        }}>
+        }}
+      >
         {children}
       </animated.button>
       <animated.div className={styles['dock-dot']} style={{ opacity }} />

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import * as React from 'react'
 import { animated, useSpringValue } from '@react-spring/web'
 import { clamp } from '@react-spring/shared'
@@ -18,6 +19,7 @@ interface DockProps {}
 
 export const DOCK_ZOOM_LIMIT = [-100, 50]
 
+//TODO: On scroll to view, set to selected in dock
 export const Dock = () => {
   const [hovered, setHovered] = React.useState(false)
   const [width, setWidth] = React.useState(0)
@@ -39,7 +41,7 @@ export const Dock = () => {
   useWindowResize(() => {
     setWidth(dockRef.current.clientWidth)
   })
-
+  console.log(Object.entries(DOCK_DATA))
   return (
     <DockContext.Provider
       value={{ hovered, setIsZooming, width, zoomLevel, setSelectedCard }}
@@ -67,13 +69,21 @@ export const Dock = () => {
         }}
       >
         {Object.entries(DOCK_DATA).map(([id, src], index) =>
-          src ? (
+          src.icon ? (
             <RevealingBackground slow={true}>
-              <Link to={id} smooth={true} duration={500} spy={true}>
-                <DockCard key={src} selected={selectedCard} id={id}>
-                  <Card src={src} />
-                </DockCard>
-              </Link>
+              {src.url ? (
+                <a href={src.url} target='_blank'>
+                  <DockCard key={src.icon} selected={selectedCard} id={id}>
+                    <Card src={src.icon} />
+                  </DockCard>
+                </a>
+              ) : (
+                <Link to={id} smooth={true} duration={500} spy={true}>
+                  <DockCard key={src.icon} selected={selectedCard} id={id}>
+                    <Card src={src.icon} />
+                  </DockCard>
+                </Link>
+              )}
             </RevealingBackground>
           ) : (
             <DockDivider key={index} />

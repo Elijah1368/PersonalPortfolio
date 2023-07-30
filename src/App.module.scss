@@ -10,21 +10,41 @@
   overflow-x: hidden;
 }
 
+.appCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  width: 97%;
+  height: 100%;
+  font-size: 16px;
+  background-color: var(--content-bg);
+  border-radius: 14px;
+  border: 1px solid var(--theme-bg-color);
+  padding: 30px;
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
 .first {
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
     url('./assets/Images/elCapitan3.jpg');
 }
 
 .second {
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
     url('./assets/Images/elCapitan3.jpg');
-    z-index: 2;
+  z-index: 2;
 }
 
 .third {
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
     url('./assets/Images/universityOfWashington.jpg');
-    z-index: 2;
+  z-index: 2;
 }
 
 .firstExperience {
@@ -94,9 +114,7 @@
 }
 
 .education {
- 
   background-image: url('../src/assets/Images/universityOfWashington.jpg');
-
 }
 .container {
   color: var(--color);

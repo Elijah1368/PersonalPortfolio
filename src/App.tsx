@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import styles from './App.module.scss'
-import { Navbar } from './components/navbar/navbar'
+
 import { Home } from './components/home/home'
 import { Experience } from './components/experience/experience'
 import { Projects } from './components/projects/projects'
@@ -16,20 +16,15 @@ import {
   WORK_EXPERIENCE,
 } from './constants'
 import { RevealingBackground } from './components/revealing-background/revealing-background'
-import QualcommImage from './assets/Images/Qualcomm.jpg'
-import Classnames from 'classnames'
+
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import Box from '@mui/material/Box'
-import { DOCK_DATA } from './constants'
-import { Card } from './components/macOSDock/Card'
+
 import { Dock } from './components/macOSDock/Dock'
-import { DockCard } from './components/macOSDock/DockCard'
-import { DockDivider } from './components/macOSDock/DockDivider'
-import { Link } from 'react-scroll'
-import { ParallaxTitle } from './components/parallax-title/parallax-title'
+
 
 import {
   PageContent,
@@ -40,8 +35,8 @@ import { Section } from './components/common/section'
 import classNames from 'classnames'
 import { ExperienceItem } from './components/experience/experience-item/experience-item'
 import { JobDescriptionContainer } from './components/experience/experience-item/job-description-container/job-description-container'
-import RevealingBackgroundBoard from './_codux/boards/revealing-background/revealing-background.board'
 import ContactForm from './components/contact/contactForm/contactForm'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -53,8 +48,25 @@ function App() {
   ]
   return (
     <Box className='flex w-full flex-col bg-black'>
-      <Home className={classNames(styles.container, styles.first)} />
-      <div className={classNames(styles.blank)}>
+      <div className='fixed z-30'>
+        <ToastContainer
+          position='top-center'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme='dark'
+        />
+      </div>
+      <div id='home'>
+        <Home className={classNames(styles.container, styles.first)} />
+      </div>
+
+      <div className={classNames(styles.blank)} id='experience'>
         <span>EXPERIENCE</span>
       </div>
 
@@ -84,15 +96,20 @@ function App() {
           )
         })}
       </Experience>
-      <div className={styles.blank}>PROJECTS</div>
-      <Projects className={classNames(styles.container, styles.second)}>
-        <MacWindow title={PROJECT_TITLE}>
-          <RevealingBackground>
-            <PageContent projects={PROJECTS}></PageContent>
-          </RevealingBackground>
-        </MacWindow>
-      </Projects>
-      <div className={styles.blank}>EDUCATION</div>
+      <div className={styles.blank} id="projects">PROJECTS</div>
+
+        <Projects className={classNames(styles.container, styles.second)}>
+          <MacWindow title={PROJECT_TITLE}>
+            <RevealingBackground>
+              <PageContent projects={PROJECTS}></PageContent>
+            </RevealingBackground>
+          </MacWindow>
+        </Projects>
+     
+      <div className={styles.blank} id='education'>
+        EDUCATION
+      </div>
+
       <Education className={classNames(styles.container, styles.third)}>
         <Section>
           <MacWindow title='Education'>
@@ -139,7 +156,7 @@ function App() {
                       {EDUCATION.Description.join(', ')}
                     </p>
                   </div>
-                  <div className='flex justify-end pr-5'>
+                  <div className='flex justify-end pr-5' id='education'>
                     <a
                       href={EDUCATION.website || ''}
                       target='_blank'
@@ -154,13 +171,15 @@ function App() {
           </MacWindow>
         </Section>
       </Education>
-      <div className={styles.blank}></div>
-      <Contact className={classNames(styles.container, styles.fifth)}>
-        <MacWindow title='Contact'>
-          <ContactForm></ContactForm>
-        </MacWindow>
-      </Contact>
 
+      <div className={styles.blank} id="contacts">Contact</div>
+   
+        <Contact className={classNames(styles.container, styles.second)}>
+          <MacWindow title='Contact'>
+            <ContactForm className={styles.appCard}></ContactForm>
+          </MacWindow>
+        </Contact>
+      
       <Dock />
     </Box>
   )
