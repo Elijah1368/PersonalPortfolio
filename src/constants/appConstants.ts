@@ -1,7 +1,6 @@
 import QualcommImage from '../assets/Images/Qualcomm2.jpg'
 import MorphicImage from '../assets/Images/morphic.jpg'
 import MCGImage from '../assets/Images/mcghealth2.jpg'
-import Wallpaper from '../assets/Images/elCapitan1.jpg'
 
 import homeIcon from '../assets/Images/hero.png'
 import experienceIcon from '../assets/Images/experience.png'
@@ -82,8 +81,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     companyUrl: 'https://www.mcg.com/',
   },
 ]
-
-export const WALLPAPER = Wallpaper
 
 export const DOCK_DATA = {
   home: {

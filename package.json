@@ -1,12 +1,17 @@
 {
   "name": "personal-portfolio",
+  "homepage": "http://Elijah1368.github.io/PersonalPortfolio",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
